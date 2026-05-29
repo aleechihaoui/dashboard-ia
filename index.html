@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard IA Financier</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <h1>Dashboard IA Financier</h1>
+  <span id="ai-status">Agent IA connecté</span>
+</div>
+
+<div class="main">
+
+  <!-- KPIs -->
+  <div class="sidebar">
+    <h3>Indicateurs clés</h3>
+    <div class="kpi-card">
+      <div class="label">Chiffre d'affaires</div>
+      <div class="value" id="kpi-ca">2.5M €</div>
+      <div class="trend up" id="kpi-ca-trend">▲ +12% vs 2024</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Bénéfice net</div>
+      <div class="value" id="kpi-bn">350K €</div>
+      <div class="trend up">▲ +8% vs 2024</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Marge brute</div>
+      <div class="value" id="kpi-mb">42%</div>
+      <div class="trend down">▼ -2% vs 2024</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Trésorerie</div>
+      <div class="value" id="kpi-tr">1.2M €</div>
+      <div class="trend up">▲ +5% vs 2024</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Dette totale</div>
+      <div class="value" id="kpi-dt">800K €</div>
+      <div class="trend down">▼ Stable</div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-area">
+    <div class="chart-card">
+      <h4>Chiffre d'affaires par département (2025)</h4>
+      <canvas id="chart-ca"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>Évolution mensuelle du CA (2025)</h4>
+      <canvas id="chart-mensuel"></canvas>
+    </div>
+  </div>
+
+  <!-- Chat IA -->
+  <div class="chat-panel">
+    <h3>Agent IA — Analyse financière</h3>
+    <div class="suggestions-chat">
+      <span class="sug" onclick="poser(this)">Analyse les risques</span>
+      <span class="sug" onclick="poser(this)">Prévisions 2026</span>
+      <span class="sug" onclick="poser(this)">Points forts</span>
+      <span class="sug" onclick="poser(this)">Recommandations</span>
+    </div>
+    <div class="chat-messages" id="messages">
+      <div class="msg ai">
+        Bonjour ! Je suis votre agent IA financier. 
+        Posez-moi des questions sur ce dashboard ou demandez une analyse.
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="input" 
+        placeholder="Ex: Analyse la rentabilité..."
+        onkeypress="if(event.key==='Enter') envoyer()">
+      <button id="btn" onclick="envoyer()">▶</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
